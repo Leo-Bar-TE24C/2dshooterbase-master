@@ -687,8 +687,10 @@ MonoBehaviour:
     m_Bits: 64
   groundChecker: {fileID: 662489312}
   jumpForce: 17
-  timeBetweenJump: 1
+  timeBetweenJump: 0.2
   jumpNumMax: 1
+  dashForce: 15
+  dashTime: 0.1
 --- !u!1 &662489312
 GameObject:
   m_ObjectHideFlags: 0
