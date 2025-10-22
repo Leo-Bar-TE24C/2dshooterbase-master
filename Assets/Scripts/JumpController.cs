@@ -37,6 +37,11 @@ public class JumpController : MonoBehaviour
     [SerializeField]
     float dashTime = 1;
 
+    [SerializeField]
+    float timeBetweenDash = 1;
+    float timeSinceDash = 0;
+
+
     void Update()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
@@ -62,6 +67,8 @@ public class JumpController : MonoBehaviour
     {
         timeSinceJump += Time.deltaTime;
 
+        timeSinceDash += Time.deltaTime;
+
         bool isGrounded = Physics2D.OverlapCircle(groundChecker.transform.position, .3f, groundLayer);
 
         if (isGrounded == true)
@@ -80,32 +87,32 @@ public class JumpController : MonoBehaviour
             jumpNum--;
         }
 
-        if (Input.GetKey("x") == true)
+        if (Input.GetKey("x") == true && timeSinceDash > timeBetweenDash)
         {
             StartCoroutine(dash());
+            timeSinceDash = 0;
         }
 
 
     }
     IEnumerator dash()
     {
-    Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        timeSinceDash += Time.deltaTime;
         if (rotated == true)
         {
             rb.AddForce(Vector2.right * dashForce * -1, ForceMode2D.Impulse);
             yield return new WaitForSeconds(dashTime);
-            rb.AddForce(Vector2.right * dashForce, ForceMode2D.Impulse);
+            rb.linearVelocityX = 0;
         }
         else
         {
-            rb.AddForce(Vector2.right * dashForce, ForceMode2D.Impulse);
-            yield return new WaitForSeconds(dashTime);
-            rb.AddForce(Vector2.right * dashForce * -1, ForceMode2D.Impulse);
+            while(timeSinceDash<dashTime)
+            {
+            rb.linearVelocityX = -dashForce;
+            }
+            // yield return new WaitForSeconds(dashTime);
+            rb.linearVelocityX += dashForce;
         }
-
-
-
-        
-
-        }
+    }
 }

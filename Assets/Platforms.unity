@@ -432,7 +432,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.22321102, g: 0.2293487, b: 0.23899364, a: 0}
+  m_BackGroundColor: {r: 0.47798735, g: 0.47798735, b: 0.47798735, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -691,6 +691,7 @@ MonoBehaviour:
   jumpNumMax: 1
   dashForce: 15
   dashTime: 0.1
+  timeBetweenDash: 1
 --- !u!1 &662489312
 GameObject:
   m_ObjectHideFlags: 0
