@@ -2,18 +2,38 @@ using UnityEngine;
 
 public class Follow_Controller : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GameObject up;
+
+    [SerializeField]
+    GameObject left;
+
+    [SerializeField]
+    GameObject right;
+
+    [SerializeField]
+    GameObject down;
+
+
     [SerializeField]
     GameObject target;
-    // Update is called once per frame
-    void Update()
+
+    [SerializeField]
+    LayerMask playerLayer;
+    void Start()
     {
         Vector3 pos = transform.position;
         pos.x = target.transform.position.x;
         transform.position = pos;
     }
+    // Update is called once per frame
+    void Update()
+    {
+        bool goUp= Physics2D.OverlapCircle(up.transform.position, .3f, playerLayer);
+        bool goLeft= Physics2D.OverlapCircle(left.transform.position, .3f, playerLayer);
+        bool goRight= Physics2D.OverlapCircle(right.transform.position, .3f, playerLayer);
+        bool goDown= Physics2D.OverlapCircle(down.transform.position, .3f, playerLayer);
+
+    }
+
 }
