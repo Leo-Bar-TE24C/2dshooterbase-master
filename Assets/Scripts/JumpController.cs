@@ -2,6 +2,7 @@ using System.Collections;
 using System.Threading;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class JumpController : MonoBehaviour
 {
@@ -62,6 +63,12 @@ public class JumpController : MonoBehaviour
             transform.Rotate(0, -180, 0);
             rotated = false;
         }
+
+        if (transform.position.y <= -20)
+        {
+            transform.position=new(-9,-3,0);
+        }
+        
     }
     void FixedUpdate()
     {
@@ -107,12 +114,9 @@ public class JumpController : MonoBehaviour
         }
         else
         {
-            while(timeSinceDash<dashTime)
-            {
-            rb.linearVelocityX = -dashForce;
-            }
-            // yield return new WaitForSeconds(dashTime);
-            rb.linearVelocityX += dashForce;
+            rb.AddForce(Vector2.right * dashForce * 1, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(dashTime);
+            rb.linearVelocityX = 0;
         }
     }
 }
