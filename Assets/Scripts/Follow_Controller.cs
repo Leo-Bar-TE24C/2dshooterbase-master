@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+
+// not my code
  
 public class FollowCamera : MonoBehaviour {
  

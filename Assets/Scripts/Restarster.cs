@@ -6,6 +6,6 @@ public class Restarter : MonoBehaviour
 {
     public void ChangeScene()
     {
-    SceneManager.LoadScene("Main");
+    SceneManager.LoadScene("Platforms");
     }
 }

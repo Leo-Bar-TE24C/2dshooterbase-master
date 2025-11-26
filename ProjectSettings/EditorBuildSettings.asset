@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameOver.unity
     guid: 13322413f6c8bc049997278a2dc80684
+  - enabled: 1
+    path: Assets/Platforms.unity
+    guid: 690c0da07100e794785a8ca0d9c84a68
+  - enabled: 1
+    path: Assets/Win screen.unity
+    guid: c96a44e6ee1e13d45a556b44396b51be
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

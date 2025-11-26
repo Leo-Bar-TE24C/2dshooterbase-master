@@ -64,7 +64,7 @@ public class JumpController : MonoBehaviour
             rotated = false;
         }
 
-        if (transform.position.y <= -20)
+        if (transform.position.y <= -30)
         {
             transform.position=new(-9,-3,0);
         }
