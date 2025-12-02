@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class winScreen : MonoBehaviour
 {
@@ -11,6 +13,16 @@ public class winScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("Win screen");
+            print("change");
+        }
         
     }
 }
